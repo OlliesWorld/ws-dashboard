@@ -1,4 +1,6 @@
 <script>
+  // @ts-nocheck
+
   import { onMount } from "svelte";
   import { fetchMultipleData } from "$lib/utils/fetchUtils";
   import { getToday } from "$lib/utils/dateUtils";
@@ -12,7 +14,8 @@
   let scores;
   /** @type {Array<{ name: string }>} */
   let events = [];
-
+  let competitions = [];
+  let teams = [];
   onMount(async () => {
     try {
       const [newsData, scoresData] = await fetchMultipleData([
@@ -24,11 +27,29 @@
       articles = news.articles || [];
       scores = scoresData;
       events = scores.events || [];
-      console.log('events', events);
+      // @ts-ignore
+      competitions = events.map((event) => event.competitions || []).flat();
+      // console.log('events', events);
+      // console.log("competitions", competitions);
+      teams = competitions
+        .map((competition) =>
+          competition.competitors.map((competitor) => ({
+            abbreviation: competitor.team.abbreviation,
+            score: competitor.score,
+          })),
+        )
+        .flat();
+      // console.log("teams", teams);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   });
+  
+  function getHighestScore(competitors) {
+    const highestScore = Math.max(...competitors.map(competitor => competitor.score));
+    console.log('Highest Score:', highestScore);
+    return highestScore;
+  }
 </script>
 
 <div class="container">
@@ -47,7 +68,15 @@
       {#each events as event}
         <details>
           <summary>{event.name}</summary>
-          <p>...</p>
+          {#each event.competitions as competition}
+          <div>
+            {#each competition.competitors as competitor}
+            <p class:highest-score={competitor.score === getHighestScore(competition.competitors)}>
+              {competitor.team.abbreviation}: {competitor.score}
+            </p>
+            {/each}
+          </div>
+        {/each}
         </details>
       {/each}
     </div>
