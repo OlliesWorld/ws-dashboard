@@ -1,38 +1,46 @@
-# sv
+# Women's Sport Dashboard
+## General info
+This project is to have all info that is easy accessible for any women's sports fan.
+Scores, info and who knows what else
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Technologies
+Project is created with:<br/>
+SvelteKit </br>
+Pico </br>
+**Motion**(later) </br>
+Vercel
 
-## Creating a project
+	
+## 🚀 Quick start
+1. **Clone project**
 
-If you're seeing this, you've probably already done this step. Congrats!
+2.  **Start developing.**
 
-```bash
-# create a new project in the current directory
-npx sv create
+   
 
-# create a new project in my-app
-npx sv create my-app
-```
+    ```shell
+    
+    npm run develop
+    ```
 
-## Developing
+### To-do
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- [x] SVelteKit
+- [ ] Fetchdata test
+- [ ] get all data pulled in and displayed
+- [ ] get design/layou
+- [ ] add animation motion
+- [] Done!
 
-```bash
-npm run dev
+### License
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+This project is licensed under the [MIT License](LICENSE.md).
 
-## Building
+## 🚀 About Roni
 
-To create a production version of your app:
+Checkout my [Roni's Portfolio](https://www.roni.rocks):
 
-```bash
-npm run build
-```
 
-You can preview the production build with `npm run preview`.
+## Prerequisites
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- [Node.js](https://nodejs.org/en/) (v20.X or later)

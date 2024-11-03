@@ -15,7 +15,7 @@
     onMount(async () => {
       try {
         const newsData = await fetchData(
-          'HTTP://site.api.espn.com/apis/site/v2/sports/basketball/wnba/news?limit=7'
+          'HTTPS://site.api.espn.com/apis/site/v2/sports/basketball/wnba/news?limit=7'
     );
   
         news = newsData;

@@ -15,8 +15,8 @@
   onMount(async () => {
     try {
       const [newsData, scoresData] = await fetchMultipleData([
-        'http://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/news?limit=5',
-        'http://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/scoreboard'
+        'https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/news?limit=5',
+        'https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/scoreboard'
       ]);
 
       news = newsData;
