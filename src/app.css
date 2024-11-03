@@ -1,12 +1,23 @@
 :root {
-    --primary: aqua;
+    --primary: #398712;
+ 
   }
 
   .card-container {
-
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 20px;
-      
-    
+      grid-column-gap: 40px;    
+      margin: 40px 0;    
   }
+
+.underline {
+    border-bottom: 2px solid var(--pico-primary);
+}
+
+.home:hover {
+fill: var(--pico-primary);
+}
+.score-container {
+   width: 50%;
+   margin: 40px 0;
+}

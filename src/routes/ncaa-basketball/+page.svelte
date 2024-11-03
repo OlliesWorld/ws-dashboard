@@ -1,9 +1,41 @@
-<h1>NCAA Basketball 🏀</h1>
-<p>This will be the place for all NCAA Basketball stuffs!</p>
-<p>News:</p>
-<ul>
-    <li>News 1</li>
-    <li>News 2</li>
-    <li>News 3</li>
-    </ul>
-<p>Scores:</p>
+<script>
+  import { onMount } from "svelte";
+  import { fetchData } from "$lib/utils/fetchUtils";
+  import { getToday } from "$lib/utils/dateUtils";
+  import "../../app.css";
+  import Card from "$lib/components/Card.svelte";
+  const { day, date } = getToday();
+  let news;
+  /** @type {Array<{ headline: string, description: string, links: { web: { href: string } } }>} */
+  let articles = [];
+  let scores;
+  /** @type {Array<{ name: string }>} */
+  let events = [];
+
+  onMount(async () => {
+    try {
+      const newsData = await fetchData(
+        "HTTPS://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/news?limit=7",
+      );
+
+      news = newsData;
+      articles = news.articles || [];
+      // scores = scoresData;
+      // events = scores.events || [];
+      // console.log('events', events);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  });
+</script>
+
+<div class="container">
+  <p>This will be the place for all NCAA Basketball stuffs!</p>
+  <div class="card-container">
+    <h2>News for Today <span class="underline">{day}, {date}</span></h2>
+    {#each articles as article}
+      <Card headline={article.headline} link={article.links.web.href} />
+    {/each}
+  </div>
+  <p>Scores:</p>
+</div>
