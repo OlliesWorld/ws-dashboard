@@ -19,7 +19,7 @@
   onMount(async () => {
     try {
       const newsData = await fetchData(
-        "HTTPS://site.api.espn.com/apis/site/v2/sports/basketball/wnba/news?limit=7",
+        "HTTP://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/news?limit=5",
       );
 
       news = newsData;
@@ -39,12 +39,12 @@
   <p>Loading...</p>
 {:else}
   <div class="container" transition:slide={{ x: -800, duration: 800 }}>
-    <h2>News for Today <span class="underline">{day}, {date}</span></h2>
-    <div class="card-container">
-      {#each articles as article}
-        <Card headline={article.headline} link={article.links.web.href} />
-      {/each}
-    </div>
-    <p>Scores:</p>
+  <h2>News for Today <span class="underline">{day}, {date}</span></h2>
+  <div class="card-container">
+    {#each articles as article}
+      <Card headline={article.headline} link={article.links.web.href} />
+    {/each}
   </div>
+  <p>Scores:</p>
+</div>
 {/if}
