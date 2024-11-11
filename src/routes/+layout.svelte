@@ -19,7 +19,7 @@ import { onMount, afterUpdate } from "svelte";
       pageName = "NCAA Basketball 🏀";
       selectedTab = "NCAA Basketball";
     } else if (route.id === "/ncaa-volleyball") {
-      pageName = "NCAA Volleyball";
+      pageName = "NCAA Volleyball 🏐";
       selectedTab = "NCAA Volleyball";
     } else if (route.id === "/ncaa-softball") {
       pageName = "NCAA Softball";
@@ -78,7 +78,7 @@ import { onMount, afterUpdate } from "svelte";
       onClick={() => selectTab("NCAA Basketball")}
     />
     <Tab
-      name="NCAA Volleyball"
+      name="NCAA Volleyball 🏐"
       selected={selectedTab === "NCAA Volleyball"}
       onClick={() => selectTab("NCAA Volleyball")}
     />

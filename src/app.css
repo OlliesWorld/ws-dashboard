@@ -2,9 +2,7 @@
     --primary: #398712;
  
   }
-footer {
-    margin-top: 80px;
-}
+
   .card-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
