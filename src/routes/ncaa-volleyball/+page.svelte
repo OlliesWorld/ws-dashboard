@@ -21,8 +21,8 @@
   onMount(async () => {
     try {
       const [newsData, scoresData] = await fetchMultipleData([
-        "HTTP://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/news?limit=5",
-        "HTTP://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball//scoreboard"
+        "HTTPS://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/news?limit=5",
+        "HTTPS://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball//scoreboard"
       ]);
 // console.log('scoresData', scoresData);
 // console.log('newsData', newsData);
