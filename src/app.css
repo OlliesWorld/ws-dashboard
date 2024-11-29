@@ -7,7 +7,9 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-column-gap: 40px;    
-      margin: 40px 0;    
+      margin: 40px 0;  
+      height: fit-content;
+ 
   }
 
 .underline {
@@ -18,10 +20,13 @@
 fill: var(--pico-primary);
 }
 .score-container {
-   width: 50%;
+   width: fit-content;
    margin: 40px 0;
 }
 
 .highest-score p {
     color: var(--pico-primary) !important;
   }
+.nwsl {
+  background-color: var(--pico-color-red-950) !important;
+}

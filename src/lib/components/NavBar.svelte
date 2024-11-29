@@ -1,8 +1,12 @@
 <script>
+  import { getToday } from "$lib/utils/dateUtils";
   export let pageName = "";
+  const { day, date } = getToday();
 </script>
 
-<div class="nav-container">
+<div class="container nav-container">
+  <h1>{pageName}</h1>
+  <p class="pico-color-primary">{day}, {date}</p>
   <div class="home">
     <a class="grid-1" href="/" aria-label="home">
       <svg
@@ -23,16 +27,14 @@
     </a>
     <a href="/">Dashboard</a>
   </div>
-  <h1>{pageName}</h1>
 </div>
 
 <style>
   .nav-container {
     display: grid;
-    grid-template-columns: 100px 1fr;
-    h1 {
-      text-align: center;
-    }
+    grid-template-columns: 1fr 1fr 150px;
+    align-items: center;
+
     .home {
       display: flex;
     }

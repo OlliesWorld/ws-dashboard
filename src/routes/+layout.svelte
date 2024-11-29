@@ -1,6 +1,6 @@
 <script>
-// @ts-nocheck
-import { onMount, afterUpdate } from "svelte";
+  // @ts-nocheck
+  import { onMount, afterUpdate } from "svelte";
   import NavBar from "$lib/components/NavBar.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import { page } from "$app/stores";
@@ -32,8 +32,7 @@ import { onMount, afterUpdate } from "svelte";
       selectedTab = "Home";
     }
   }
- 
- 
+
   function selectTab(tab) {
     selectedTab = tab;
     // Navigate to the corresponding route
@@ -49,7 +48,6 @@ import { onMount, afterUpdate } from "svelte";
       goto("/");
     }
   }
-  
 </script>
 
 <svelte:head>
@@ -59,8 +57,8 @@ import { onMount, afterUpdate } from "svelte";
   />
 </svelte:head>
 
+<NavBar {pageName} />
 <main class="container-fluid">
-  <NavBar {pageName} />
   <div class="tabs">
     <Tab
       name="WNBA 🏀"
@@ -87,15 +85,10 @@ import { onMount, afterUpdate } from "svelte";
       selected={selectedTab === "NCAA Softball"}
       onClick={() => selectTabb("NCAA Softball")}
     /> -->
-
   </div>
-
-  <div class="page" >
     <slot />
-  </div>
-
+  </main>
   <Footer />
-</main>
 
 <style>
   :root {
@@ -106,7 +99,6 @@ import { onMount, afterUpdate } from "svelte";
     justify-content: space-around;
     margin-bottom: 20px;
   }
-  .page {
-    position: relative;
-  }
+
+
 </style>
